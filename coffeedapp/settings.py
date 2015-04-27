@@ -78,12 +78,12 @@ WSGI_APPLICATION = 'coffeedapp.wsgi.application'
 
 ON_HEROKU = os.environ.get('ON_HEROKU')
 
-if ON_HEROKU == '1':
+if ON_HEROKU == True:
 
     # Parse database configuration from $DATABASE_URL
 
     import dj_database_url
-    DATABASES['default': dj_database_url.config()]
+    DATABASES['default'] =  dj_database_url.config()
 
 else: 
     DATABASES = {
