@@ -78,12 +78,12 @@ WSGI_APPLICATION = 'coffeedapp.wsgi.application'
 
 ON_HEROKU = os.environ.get('ON_HEROKU')
 
-if ON_HEROKU == True:
+if ON_HEROKU == '1':
 
     # Parse database configuration from $DATABASE_URL
 
     import dj_database_url
-    DATABASES['default'] = dj_database_url.config()
+    DATABASES['default': dj_database_url.config()]
 
 else: 
     DATABASES = {
@@ -91,7 +91,6 @@ else:
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': os.path.join(MAIN_DIR, 'db.sqlite3'),
                     }
-
                 }
 
 # Parse database configuration from $DATABASE_URL
