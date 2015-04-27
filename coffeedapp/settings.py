@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'coffeedapp.wsgi.application'
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 ON_HEROKU = os.environ.get('ON_HEROKU')
-
+DATABASES = {}
 if ON_HEROKU == '1':
 
     # Parse database configuration from $DATABASE_URL
