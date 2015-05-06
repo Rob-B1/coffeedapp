@@ -46,6 +46,7 @@ class Location(models.Model):
 	title = models.CharField(max_length=300)
 	description = models.TextField(null=True, blank=True)
 	address = models.TextField(null=True, blank=True)
+	position = GeopositionField(null=True, blank=True)
 	hours = models.TextField(null=True, blank=True)
 	image_file = models.ImageField(upload_to=upload_to_location,null=True, blank=True)	
 	WiFi = models.IntegerField(choices=WIFI_CHOICES, null=True, blank=True)
@@ -56,7 +57,6 @@ class Location(models.Model):
 	Outdoor_Seating = models.IntegerField(choices=YESNO_CHOICES, null=True, blank=True)
 	Bathrooms = models.IntegerField(choices=YESNO_CHOICES, null=True, blank=True)
 	Food = models.IntegerField(choices=PLURAL_CHOICES, null=True, blank=True)
-	position = GeopositionField(null=True, blank=True)
 	created_at = models.DateTimeField(auto_now_add=True)
 
 	def __unicode__(self):

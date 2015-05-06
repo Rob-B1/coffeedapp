@@ -15,6 +15,7 @@ class LandingView(TemplateView):
 class LocationListView(ListView):
 	model = coremodels.Location
 	template_name = 'location/list.html'
+	paginate_by = 5
 
 class LocationDetailView(DetailView):
 	model = coremodels.Location
@@ -43,6 +44,7 @@ class LocationUpdateView(UpdateView):
 	model = coremodels.Location
 	template_name = 'base/form.html'
 	fields = "__all__"
+
 
 class SearchListView(LocationListView):
     def get_queryset(self):

@@ -1,5 +1,6 @@
 
 {% extends "base/theme.html" %}
+{% load bootstrap_pagination %}
 {% block main_content %}
 <div class="data-layer">
  <ul>
@@ -24,7 +25,7 @@
 		 {% if location.hours %}<p>{{ location.hours }}</p>{% endif %}
 		 {% if location.image_file %}<img class="img-responsive" src="{{ location.image_file.url }}"></img>
 		 {% include 'location/specifics.html' with location=location %}
-		 		 <p>{{ location.description }}</p>
+		 <p>{{ location.description }}</p>
  		 {% endif %}
  		 </div>
 		</div>
@@ -32,4 +33,7 @@
 	</div>
 	<div class ="col-md-2"></div>
 </div>
+	{% block pagination %}
+ 		{% bootstrap_paginate page_obj range=10 show_prev_next="false" show_first_last="true" %}
+	{% endblock %}
 {% endblock %}
